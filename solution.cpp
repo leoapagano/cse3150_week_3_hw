@@ -7,7 +7,6 @@
 // TODO: implement addStudent
 void addStudent(char* name, double gpa, char* names[], double gpas[], int& size, int capacity) {
     if (size == capacity) {
-        std::cout << "List full" << std::endl;
         throw "List full";
     } else {
         names[size] = name;
@@ -29,7 +28,6 @@ void printStudent(const char* name, const double& gpa) {
 // TODO: implement averageGPA
 double averageGPA(const double gpas[], int size) {
     if (size == 0) {
-        std::cout << "No students" << std::endl;
         throw "No students";
     } else {
         double sum = 0.0;
@@ -72,7 +70,11 @@ int main(int argc, char* argv[]) {
                 std::cin >> name;
                 std::cout << "Enter GPA: ";
                 std::cin >> gpa;
-                addStudent(name, gpa, names, gpas, size, capacity);
+                try {
+                    addStudent(name, gpa, names, gpas, size, capacity);
+                } catch(const char* msg) {
+                    std::cout << msg << std::endl;
+                }
                 break;
             }
             case 2: {
@@ -95,8 +97,13 @@ int main(int argc, char* argv[]) {
             }
             case 4: {
                 // TODO: implement menu logic
-                int avg = static_cast<int>(averageGPA(gpas, size));
-                std::cout << "Average GPA: " << avg << std::endl;
+                try {
+                    double d_avg = averageGPA(gpas, size);
+                    int avg = static_cast<int>(d_avg);
+                    std::cout << "Average GPA: " << avg << std::endl;
+                } catch(const char* msg) {
+                    std::cout << msg << std::endl;
+                }
                 break;
             }
             case 5: {
