@@ -11,7 +11,7 @@ void addStudent(char* name, double gpa, char* names[], double gpas[], int& size,
 
 // TODO: implement updateGPA
 void updateGPA(double* gpaPtr, double newGpa) {
-
+    *gpaPtr = newGpa;
 }
 
 // TODO: implement printStudent
