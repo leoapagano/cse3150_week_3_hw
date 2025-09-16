@@ -28,11 +28,16 @@ void printStudent(const char* name, const double& gpa) {
 
 // TODO: implement averageGPA
 double averageGPA(const double gpas[], int size) {
-    double sum = 0.0;
-    for (int i=0; i<size; i++) {
-        sum += gpas[i];
+    if (size == 0) {
+        std::cout << "No students" << std::endl;
+        throw "No students";
+    } else {
+        double sum = 0.0;
+        for (int i=0; i<size; i++) {
+            sum += gpas[i];
+        }
+        return sum / size;
     }
-    return sum / size;
 }
 
 
@@ -90,13 +95,8 @@ int main(int argc, char* argv[]) {
             }
             case 4: {
                 // TODO: implement menu logic
-                if (size == 0) {
-                    std::cout << "No students" << std::endl;
-                    throw "No students";
-                } else {
-                    int avg = static_cast<int>(averageGPA(gpas, size));
-                    std::cout << "Average GPA: " << avg << std::endl;
-                }
+                int avg = static_cast<int>(averageGPA(gpas, size));
+                std::cout << "Average GPA: " << avg << std::endl;
                 break;
             }
             case 5: {
