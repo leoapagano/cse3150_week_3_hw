@@ -21,7 +21,11 @@ void printStudent(const char* name, const double& gpa) {
 
 // TODO: implement averageGPA
 double averageGPA(const double gpas[], int size) {
-    return 0.0;
+    double sum = 0.0;
+    for (int i=0; i<size; i++) {
+        sum += gpas[i];
+    }
+    return sum / size;
 }
 
 
