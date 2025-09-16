@@ -50,18 +50,45 @@ int main(int argc, char* argv[]) {
         switch (choice) {
             case 1: {
                 // TODO: implement menu logic
+                char name[100]; // names must be under 100 chars
+                double gpa;
+                std::cout << "Enter name: ";
+                std::cin >> name;
+                std::cout << "Enter GPA: ";
+                std::cin >> gpa;
+                if (size == capacity) {
+                    std::cout << "List full" << std::endl;
+                } else {
+                    addStudent(name, gpa, names, gpas, size, capacity);
+                }
                 break;
             }
             case 2: {
                 // TODO: implement menu logic
+                int index;
+                double gpa;
+                std::cout << "Enter index: ";
+                std::cin >> index;
+                std::cout << "Enter GPA: ";
+                std::cin >> gpa;
+                updateGPA(&gpas[index], gpa);
                 break;
             }
             case 3: {
                 // TODO: implement menu logic
+                for (int i=0; i<size; i++) {
+                    printStudent(names[i], gpas[i]);
+                }
                 break;
             }
             case 4: {
                 // TODO: implement menu logic
+                if (size == 0) {
+                    std::cout << "No students" << std::endl;
+                } else {
+                    int avg = static_cast<int>(averageGPA(gpas, size));
+                    std::cout << "Average GPA: " << avg << std::endl;
+                }
                 break;
             }
             case 5: {
