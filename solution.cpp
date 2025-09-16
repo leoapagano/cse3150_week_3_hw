@@ -16,7 +16,7 @@ void updateGPA(double* gpaPtr, double newGpa) {
 
 // TODO: implement printStudent
 void printStudent(const char* name, const double& gpa) {
-
+    std::cout << name << ": " << gpa << std::endl;
 }
 
 // TODO: implement averageGPA
