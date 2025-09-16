@@ -11,7 +11,7 @@ pip install -r requirements.txt
 
 Then, build and run test cases:
 ```
-c++ *.cpp -o solution.out -std=c++17
+c++ solution.cpp -o solution.out -std=c++17
 pytest
 ```
 
