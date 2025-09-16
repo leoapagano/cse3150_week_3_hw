@@ -5,12 +5,25 @@
 // TODO: function prototypes
 
 // TODO: implement addStudent
+void addStudent(char* name, double gpa, char* names[], double gpas[], int& size, int capacity) {
+    
+}
 
 // TODO: implement updateGPA
+void updateGPA(double* gpaPtr, double newGpa) {
+
+}
 
 // TODO: implement printStudent
+void printStudent(const char* name, const double& gpa) {
+
+}
 
 // TODO: implement averageGPA
+double averageGPA(const double gpas[], int size) {
+    return 0.0;
+}
+
 
 int main(int argc, char* argv[]) {
     if (argc < 2) {
