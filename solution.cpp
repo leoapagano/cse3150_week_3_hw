@@ -8,6 +8,7 @@
 void addStudent(char* name, double gpa, char* names[], double gpas[], int& size, int capacity) {
     if (size == capacity) {
         std::cout << "List full" << std::endl;
+        throw "List full";
     } else {
         names[size] = name;
         gpas[size] = gpa;
@@ -91,6 +92,7 @@ int main(int argc, char* argv[]) {
                 // TODO: implement menu logic
                 if (size == 0) {
                     std::cout << "No students" << std::endl;
+                    throw "No students";
                 } else {
                     int avg = static_cast<int>(averageGPA(gpas, size));
                     std::cout << "Average GPA: " << avg << std::endl;
