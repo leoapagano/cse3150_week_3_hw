@@ -6,7 +6,13 @@
 
 // TODO: implement addStudent
 void addStudent(char* name, double gpa, char* names[], double gpas[], int& size, int capacity) {
-    
+    if (size == capacity) {
+        std::cout << "List full" << std::endl;
+    } else {
+        names[size] = name;
+        gpas[size] = gpa;
+        size++;
+    }
 }
 
 // TODO: implement updateGPA
@@ -60,11 +66,7 @@ int main(int argc, char* argv[]) {
                 std::cin >> name;
                 std::cout << "Enter GPA: ";
                 std::cin >> gpa;
-                if (size == capacity) {
-                    std::cout << "List full" << std::endl;
-                } else {
-                    addStudent(name, gpa, names, gpas, size, capacity);
-                }
+                addStudent(name, gpa, names, gpas, size, capacity);
                 break;
             }
             case 2: {
