@@ -9,7 +9,8 @@ void addStudent(char* name, double gpa, char* names[], double gpas[], int& size,
     if (size == capacity) {
         throw "List full";
     } else {
-        names[size] = name;
+        names[size] = new char[strlen(name) + 1];
+        std::strcpy(names[size], name);
         gpas[size] = gpa;
         size++;
     }
@@ -117,6 +118,10 @@ int main(int argc, char* argv[]) {
     } while (choice != 5);
 
     // TODO: free memory
+    // we don't need to worry about size going down; we can't delete students
+    for (int i=0; i<size; i++) {
+        delete[] names[i];
+    }
 
     return 0;
 }
