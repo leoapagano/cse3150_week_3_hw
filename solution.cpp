@@ -84,6 +84,10 @@ int main(int argc, char* argv[]) {
                 double gpa;
                 std::cout << "Enter index: ";
                 std::cin >> index;
+                if ((0 > index) or (index >= size)) {
+                    std::cout << "Index out of bounds." << std::endl;
+                    break;
+                }
                 std::cout << "Enter GPA: ";
                 std::cin >> gpa;
                 updateGPA(&gpas[index], gpa);
